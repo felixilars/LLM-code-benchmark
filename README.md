@@ -1,11 +1,8 @@
-# 🤖 LLM Code Generation Benchmark
+# LLM Code Generation Benchmark
 
 > A benchmarking framework for evaluating Large Language Models on code synthesis tasks.
 > 
-> Developed during a research internship at **IRISA/DIVERSE Team** (Inria Rennes, France).
-
-[![Python 3.8+](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+> Developed during a research internship at **IRISA/DIVERSE Team** (Inria Rennes, France). -> cho thêm thời gian là tháng 6-8 năm 2024
 
 ---
 
@@ -54,9 +51,8 @@ While LLMs show impressive coding abilities, they still fail on certain problem 
 
 ### Done
 
-- [x] Benchmark pipeline for HumanEval dataset (164 problems)
-- [x] Benchmark pipeline for Puzzle dataset (37 problems)  
-- [x] Test 6 different LLMs (GPT-4o, GPT-3.5, LLaMA, Gemma, Mixtral)
+- [x] Benchmark pipeline for datasets such as HumanEval, puzzel_human-labeled
+- [x] Test different LLMs (GPT-4o, GPT-3.5, LLaMA, Gemma, Mixtral)
 - [x] Automated code extraction from LLM responses
 - [x] Sandboxed code execution with timeout handling
 - [x] Results analysis and visualization
@@ -71,9 +67,6 @@ While LLMs show impressive coding abilities, they still fail on certain problem 
 
 - [ ] Add more datasets (MBPP, CodeContests, APPS)
 - [ ] Test newer models (Claude 3, Gemini Pro, DeepSeek Coder)
-- [ ] Fine-grained analysis of failure patterns
-- [ ] Web dashboard for interactive exploration
-- [ ] Support for more programming languages (JavaScript, Java, C++)
 
 ### Potential Extensions
 
@@ -93,3 +86,52 @@ While LLMs show impressive coding abilities, they still fail on certain problem 
 Python 3.8+
 OpenAI API key (for GPT models)
 Groq API key (for open-source models, optional)
+```
+### Installation
+
+```bash
+
+git clone https://github.com/felixilars/llm-code-benchmark.git
+pip install -r requirements.txt
+
+# Set up API keys
+export OPENAI_API_KEY="your-openai-key"
+export GROQ_API_KEY="your-groq-key"  # optional
+```
+### Run Benchmark
+```bash
+
+# Generate code with GPT-4
+python generate_response.py -d HumanEval -m gpt-4 -n 5 -t 1.0 -s 0
+
+# Analyze results
+python intermedia_analyze.py -f ./log/dataset_HumanEval_model_gpt-4_topn_5_temperature_1.0.log_0
+```
+### View Results
+```bash
+
+# Quick analysis
+python run_analysis.py
+
+# Or run individual modules
+python -m analysis.results_data      # View results table
+python -m analysis.visualize         # Create visualizations
+python -m analysis.metrics           # Calculate Pass@k
+
+```
+## 📚 References
+
+- [HumanEval](https://github.com/openai/human-eval) - OpenAI's code generation benchmark
+- [Evaluating Large Language Models Trained on Code](https://arxiv.org/abs/2107.03374) - Codex paper (Pass@k methodology)
+- [Programming Puzzles](https://github.com/microsoft/PythonProgrammingPuzzles) - Microsoft's puzzle dataset
+
+---
+
+## 🙏 Acknowledgments
+
+This project was developed during a research internship at **IRISA/DIVERSE Team** (Inria Rennes, France) in Summer 2024.
+
+I would like to thank:
+
+- **DIVERSE Team at IRISA** - For the opportunity, research supervision, mentorship, and providing access to computational resources and API credits
+- **Inria Rennes** - For hosting and supporting this research internship
