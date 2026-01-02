@@ -2,7 +2,7 @@
 
 > A benchmarking framework for evaluating Large Language Models on code synthesis tasks.
 > 
-> Developed during a research internship at **IRISA/DIVERSE Team** (Inria Rennes, France). -> cho thêm thời gian là tháng 6-8 năm 2024
+> Developed during a research internship at **IRISA/DIVERSE Team** (Inria Rennes, France), June - August 2024.
 
 ---
 
