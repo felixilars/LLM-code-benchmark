@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+*.so
+
+.env
+config_local.py
+
+demo*.py
+call_demo*.py
+temp_code.py
+
+.idea/
+.vscode/
+*.swp
+
+.DS_Store
